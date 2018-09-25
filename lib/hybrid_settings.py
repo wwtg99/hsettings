@@ -2,6 +2,7 @@ import collections
 
 
 __author__ = 'wuwentao'
+__author_email__ = 'wwtg99@126.com'
 __prog__ = 'hybrid_settings'
 __version__ = '0.1.0'
 __descr__ = 'Hybrid settings from multiple sources.'

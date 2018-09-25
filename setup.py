@@ -3,7 +3,7 @@ import os
 from setuptools import setup, find_packages
 
 sys.path.insert(0, os.path.abspath('lib'))
-from hybrid_settings import __prog__, __descr__, __author__, __version__
+from hybrid_settings import __prog__, __descr__, __author__, __author_email__, __version__
 
 
 static_setup_params = dict(
@@ -11,6 +11,8 @@ static_setup_params = dict(
     version=__version__,
     description=__descr__,
     author=__author__,
+    author_email=__author_email__,
+    url='https://github.com/wwtg99/hybrid_settings',
     license='MIT',
     keywords='settings',
     python_requires='>=3.5',
