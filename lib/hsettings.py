@@ -1,3 +1,13 @@
+"""
+HSettings
+---------
+
+Hybrid settings from multiple sources.
+
+Load settings from dict, json file, yaml file, environment or other sources, merge into one dict-like object.
+Support some useful methods to search and operate in the deep dict.
+
+"""
 import collections
 
 

@@ -1,8 +1,0 @@
-README.rst
-setup.py
-lib/hsettings.egg-info/PKG-INFO
-lib/hsettings.egg-info/SOURCES.txt
-lib/hsettings.egg-info/dependency_links.txt
-lib/hsettings.egg-info/not-zip-safe
-lib/hsettings.egg-info/requires.txt
-lib/hsettings.egg-info/top_level.txt
