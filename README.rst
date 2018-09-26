@@ -1,14 +1,19 @@
 Hybrid Settings
-===============
+---------------
 
-# Description
+Description
+===========
 
 This package can load settings from multiple sources and hybrid them into one dict like object.
 
-# Installation
+Installation
+============
+
+For Python 3.5+
 
 ```
-pip install hybrid_settings
+pip install hsettings
 ```
 
-# Usage
+Usage
+=====

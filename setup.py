@@ -13,7 +13,7 @@ static_setup_params = dict(
     long_description=hsettings.__doc__,
     author=hsettings.__author__,
     author_email=hsettings.__author_email__,
-    url='https://github.com/wwtg99/hybrid_settings',
+    url='https://github.com/wwtg99/hsettings',
     license='MIT',
     keywords='settings',
     python_requires='>=3.5',
