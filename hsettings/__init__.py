@@ -17,7 +17,7 @@ from .hsettings import Settings, NOTSET
 __author__ = 'wuwentao'
 __author_email__ = 'wwtg99@126.com'
 __prog__ = 'hsettings'
-__version__ = '0.1.2'
-__descr__ = 'Hybrid settings from multiple sources.'
+__version__ = '0.1.3'
+__descr__ = 'Python hybrid settings from multiple sources.'
 
 __all__ = ['Settings', 'NOTSET']

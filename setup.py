@@ -1,20 +1,24 @@
-from setuptools import setup, find_packages
+import io
+from setuptools import setup
 import hsettings
+
+
+with io.open("README.rst", "rt", encoding="utf8") as f:
+    readme = f.read()
 
 
 static_setup_params = dict(
     name=hsettings.__prog__,
     version=hsettings.__version__,
     description=hsettings.__descr__,
-    long_description=hsettings.__doc__,
+    long_description=readme,
     author=hsettings.__author__,
     author_email=hsettings.__author_email__,
     url='https://github.com/wwtg99/hsettings',
     license='MIT',
     keywords='settings',
     python_requires='>=3.5',
-    package_dir={'': 'hsettings'},
-    packages=find_packages('hsettings'),
+    packages=['hsettings'],
     install_requires=[
         'pyyaml>=3.13'
     ],
