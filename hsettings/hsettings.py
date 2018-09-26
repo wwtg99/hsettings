@@ -1,21 +1,5 @@
-"""
-HSettings
----------
-
-Hybrid settings from multiple sources.
-
-Load settings from dict, json file, yaml file, environment or other sources, merge into one dict-like object.
-Support some useful methods to search and operate in the deep dict.
-
-"""
 import collections
 
-
-__author__ = 'wuwentao'
-__author_email__ = 'wwtg99@126.com'
-__prog__ = 'hsettings'
-__version__ = '0.1.0'
-__descr__ = 'Hybrid settings from multiple sources.'
 
 # Cannot rely on None since it may be desired as a return value.
 NOTSET = type(str('NoValue'), (object,), {})

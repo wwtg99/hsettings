@@ -1,8 +1,4 @@
-import sys
-import os
 from setuptools import setup, find_packages
-
-sys.path.insert(0, os.path.abspath('lib'))
 import hsettings
 
 
@@ -17,14 +13,17 @@ static_setup_params = dict(
     license='MIT',
     keywords='settings',
     python_requires='>=3.5',
-    package_dir={'': 'lib'},
-    packages=find_packages('lib'),
+    package_dir={'': 'hsettings'},
+    packages=find_packages('hsettings'),
     install_requires=[
         'pyyaml>=3.13'
     ],
     classifiers=[
+        "Operating System :: OS Independent",
         'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         ],
     # Installing as zip files would break due to references to __file__
     zip_safe=False

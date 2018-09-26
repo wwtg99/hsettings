@@ -1,5 +1,5 @@
 import os
-from hybrid_settings import flatted_dict, nestted_dict, Settings
+from hsettings.hsettings import flatted_dict, nestted_dict, Settings
 
 
 class TestSettings:
@@ -138,7 +138,7 @@ class TestSettings:
         import json
         with open(tmp_file, 'w') as fp:
             json.dump(data1, fp)
-        from loaders import JsonLoader
+        from hsettings.loaders import JsonLoader
         settings = JsonLoader.load(tmp_file)
         assert settings.as_dict() == data1
         os.unlink(tmp_file)
@@ -163,13 +163,13 @@ class TestSettings:
         import yaml
         with open(tmp_file, 'w') as fp:
             yaml.dump(data1, fp)
-        from loaders import YamlLoader
+        from hsettings.loaders import YamlLoader
         settings = YamlLoader.load(tmp_file)
         assert settings.as_dict() == data1
         os.unlink(tmp_file)
 
     def test_env_loader(self):
-        from loaders import EnvLoader
+        from hsettings.loaders import EnvLoader
         settings = EnvLoader.load()
         data_env = dict(os.environ)
         assert settings.as_dict() == data_env

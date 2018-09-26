@@ -1,7 +1,7 @@
 import os
 import shlex
 import re
-from hybrid_settings import Settings, nestted_dict
+from hsettings.hsettings import Settings, nestted_dict
 
 
 class EnvLoader:
