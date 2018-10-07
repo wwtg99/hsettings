@@ -18,6 +18,9 @@ class TestSettings:
                 'k6-1': '',
                 'k6-2': None,
                 'k6-3': 1.2
+            },
+            'k7': {
+                '1': '11'
             }
         }
         data2 = {
@@ -29,7 +32,8 @@ class TestSettings:
             'k5': [0, 1, 2],
             'k6.k6-1': '',
             'k6.k6-2': None,
-            'k6.k6-3': 1.2
+            'k6.k6-3': 1.2,
+            'k7.1': '11'
         }
         flatted = flatted_dict(data1)
         assert flatted == data2
@@ -167,6 +171,48 @@ class TestSettings:
         settings = YamlLoader.load(tmp_file)
         assert settings.as_dict() == data1
         os.unlink(tmp_file)
+
+    def test_dict_loader(self):
+        from hsettings.loaders import DictLoader
+        data1 = {
+            'k1': 'v1',
+            'k2': 'v2',
+            'k3': 1,
+            'k4': '1'
+        }
+        settings = DictLoader.load(data1)
+        assert settings.as_dict() == data1
+        settings = DictLoader.load(data1, casts={'k3': str, 'k4': int})
+        assert settings.get('k3') == '1'
+        assert settings.get('k4') == 1
+        settings = DictLoader.load(data1, includes=['k1', 'k2'])
+        assert settings.as_dict() == {'k1': 'v1', 'k2': 'v2'}
+        settings = DictLoader.load(data1, excludes=['k3', 'k4'])
+        assert settings.as_dict() == {'k1': 'v1', 'k2': 'v2'}
+        settings = DictLoader.load(data1, includes=['k1', 'k2'], excludes=['k2', 'k3'])
+        assert settings.as_dict() == {'k1': 'v1'}
+        settings = DictLoader.load(data1, key_mappings={
+            'k2': 'k2.k2-1',
+            'k3': 'k2.k2-2'
+        })
+        assert settings.as_dict() == {
+            'k1': 'v1',
+            'k2': {
+                'k2-1': 'v2',
+                'k2-2': 1
+            },
+            'k4': '1'
+        }
+        settings = DictLoader.load(data1, key_mappings={
+            'k2': 'k2.k2-1',
+            'k3': 'k2.k2-2'
+        }, only_key_mappings_includes=True)
+        assert settings.as_dict() == {
+            'k2': {
+                'k2-1': 'v2',
+                'k2-2': 1
+            }
+        }
 
     def test_env_loader(self):
         from hsettings.loaders import EnvLoader
