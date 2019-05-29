@@ -70,7 +70,7 @@ class DictLoader:
             if only_key_mappings_includes:
                 ret = dict([(k, ret[k]) for k in ret if k in key_mappings])
             for k, mk in key_mappings.items():
-                if k in ret:
+                if k in ret and mk != k:
                     ret[mk] = ret[k]
                     del ret[k]
             ret = nestted_dict(ret)
